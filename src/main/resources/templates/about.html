@@ -8,9 +8,23 @@
 <body>
 <h1>About me</h1>
 blabla blabla blabla bla
-<p th:text="${myCalculatedValue}">myCalculatedValue</p>
+<div class="nav">
+    <h1>Let's Party!</h1>
+    <a class="buttonLook menuButton" th:href="@{/}">home</a>
+</div>
 
-<a th:href="@{/}">home</a>
+<div class="row1">
+    <div class="row1content">
+        <h1>About me</h1>
+        blabla blabla blabla bla
+        <p th:text="${myCalculatedValue}">myCalculatedValue</p>
+    </div>
+</div>
+
+<div class="bottom">
+    <p>copyright ThomasMore</p>
+</div>
+
 
 </body>
 </html>
