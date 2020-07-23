@@ -22,6 +22,13 @@ public class VenueController {
         return "venuelist";
     }
 
+    @GetMapping("/venuelist/outdoor/yes")
+    public String venueListOutdoorYes(Model model) {
+        Iterable<Venue> venues = venueRepository.findByOutdoor(true);
+        model.addAttribute("venues", venues);
+        return "venuelist";
+    }
+
     @GetMapping({"/venuedetails/{id}", "/venuedetails"})
     public String venuedetails(Model model, @PathVariable(required = false) Integer id) {
         if (id == null) return "venuedetails";
