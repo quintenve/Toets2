@@ -146,6 +146,18 @@ a.menuButton {
     width: 6em;
     padding: 0.2em;}
 
+a.filterButton {
+    display: inline;
+    margin: 0 2px;
+    width: 6em;
+    padding: 0.2em;
+}
+
+a.activeFilter {
+    background-color: #f3a4b4;
+    color: #2b3e35;
+}
+
 a.linkLook {
     background-color: transparent;
     color: #6A8E7F;

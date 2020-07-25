@@ -12,6 +12,17 @@
 <div class="row1">
     <div class="row1content">
         <h2>venues</h2>
+        <div class="filters">
+            <div class="onefilter">
+                outdoor:
+                <a  class="buttonLook filterButton" th:classappend="(${filterOutdoor}=='yes') ? 'activeFilter' : ''"
+                    th:href="@{/venuelist/outdoor/yes}">yes</a>
+                <a  class="buttonLook filterButton" th:classappend="(${filterOutdoor}=='no') ? 'activeFilter' : ''"
+                    th:href="@{/venuelist/outdoor/no}">no</a>
+                <a  class="buttonLook filterButton" th:classappend="(${filterOutdoor}=='all') ? 'activeFilter' : ''"
+                    th:href="@{/venuelist}">all</a>
+            </div>
+        </div>
         <div th:each="venue: ${venues}">
             <a class="buttonLook mediumButton"
                th:href="@{|/venuedetails/${venue.id}|}"
