@@ -30,6 +30,15 @@ public class VenueController {
         return "venuelist";
     }
 
+    @GetMapping("/venuelist/indoor/{filter}")
+    public String venueListIndoor(Model model,
+                                  @PathVariable String filter) {
+        Iterable<Venue> venues = venueRepository.findByIndoor(filter.equals("yes"));
+        model.addAttribute("venues", venues);
+        model.addAttribute("filterIndoor", filter.equals("yes") ? "yes" : "no");
+        return "venuelist";
+    }
+
     @GetMapping({"/venuedetails/{id}", "/venuedetails"})
     public String venuedetails(Model model, @PathVariable(required = false) Integer id) {
         if (id == null) return "venuedetails";

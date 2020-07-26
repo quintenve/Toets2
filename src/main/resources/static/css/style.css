@@ -58,6 +58,7 @@ a {
     color: #EDC7CF;
     height: 150px;
 }
+
 .navbuttons {
     display: flex;
 }
@@ -96,6 +97,19 @@ a {
     list-style: none;
 }
 
+.filters {
+}
+
+.onefilter {
+    margin: 2px 0;
+    display: flex;
+}
+
+.filtername {
+    width: 4em;
+    padding: 0.2em;
+}
+
 .buttons {
     flex-grow: 1;
     position: absolute;
@@ -117,7 +131,6 @@ a.buttonLook {
 a.buttonLook:hover {
     background-color: #6A8E7F;
     color: #EDC7CF;
-    border: solid 1px #edc7cf;
 }
 
 a.buttonLook:active {
@@ -137,19 +150,22 @@ a.mediumButton {
     font-size: 1.2em;
     padding: 1em;
 }
+
 a.smallButton {
     font-size: 1.5em;
     padding: 1em;
 }
+
 a.menuButton {
     margin: 0 10px;
     width: 6em;
-    padding: 0.2em;}
+    padding: 0.2em;
+}
 
 a.filterButton {
     display: inline;
     margin: 0 2px;
-    width: 6em;
+    width: 2em;
     padding: 0.2em;
 }
 
@@ -178,14 +194,16 @@ a.linkLook:hover {
     font-size: 1em;
     display: flex;
 }
+
 .infoLineName {
     width: 13em;
-    //background-color: cadetblue;
+/ / background-color: cadetblue;
 }
+
 .infoLineValue {
     font-size: 1.2em;
     text-align: left;
-    //background-color: yellow;
+/ / background-color: yellow;
 }
 
 .prevButtonDiv {
@@ -193,12 +211,14 @@ a.linkLook:hover {
     left: 50px;
     bottom: 50px;
 }
+
 .nextButtonDiv {
     position: absolute;
     right: 50px;
     bottom: 50px;
 
 }
+
 /* home page only */
 
 .row2 {
