@@ -31,6 +31,13 @@
             <div class="infoLine" th:unless="${party.pricePresaleInEur!=null || party.priceInEur!=null}">
                 Free Party!
             </div>
+            <div class="infoLine">
+                <div class="infoLineName">where:</div>
+                <div class="infoLineValue"
+                     th:text="|${party.venue.city} (${party.venue.distanceFromPublicTransportInKm} km from public transport)|">
+                    city and distance
+                </div>
+            </div>
             <div class="infoLine" th:if="${party.pricePresaleInEur!=null || party.priceInEur!=null}">
                 <div class="infoLineName">price:</div>
                 <!--suppress SyntaxError -->
