@@ -6,6 +6,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.ManyToOne;
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -23,6 +24,9 @@ public class Party {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Venue venue;
+
+    @ManyToMany
+    private Collection<Artist> artists;
 
     public Party() {
     }
@@ -89,6 +93,14 @@ public class Party {
 
     public void setVenue(Venue venue) {
         this.venue = venue;
+    }
+
+    public Collection<Artist> getArtists() {
+        return artists;
+    }
+
+    public void setArtists(Collection<Artist> artists) {
+        this.artists = artists;
     }
 }
 
