@@ -46,7 +46,19 @@
         <p>no artist was chosen</p>
     </div>
 </div>
+<div class="row1" th:if="${artist}">
+    <div class="row1content">
+        <h2  th:text="|parties by ${artist.artistName}|">parties by artist</h2>
 
+        <div class="venuelist">
+            <div th:each="party:${artist.parties}">
+                <a class="buttonLook mediumButton" th:href="@{|/partydetails/${party.id}|}">
+                    <span th:text="${party.name}">venue name </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 <div th:replace="fragments/footer :: footer">Footer</div>
 
 </body>
