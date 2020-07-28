@@ -74,6 +74,19 @@
         </div>
     </div>
 </div>
+<div class="row1">
+    <div class="row1content">
+        <h2>wie gaat? </h2>
+
+        <div class="venuelist">
+            <div th:each="animal:${party.animals}">
+                <a class="buttonLook mediumButton" th:href="@{|/animaldetails/${animal.id}|}">
+                    <span th:text="${animal.name}">animal name </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 <div th:replace="fragments/footer :: footer">Footer</div>
 
 </body>
