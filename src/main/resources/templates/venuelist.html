@@ -31,6 +31,17 @@
                 <a  class="buttonLook filterButton" th:classappend="(${filterIndoor}=='no') ? 'activeFilter' : ''"
                    th:href="@{/venuelist/indoor/no}">no</a>
             </div>
+            <div class="onefilter">
+                <div class="filtername">size:</div>
+                <a  class="buttonLook filterButton" th:classappend="(${filterSize}==null) ? 'activeFilter' : ''"
+                    th:href="@{/venuelist}">all</a>
+                <a  class="buttonLook filterButton" th:classappend="(${filterSize}=='S') ? 'activeFilter' : ''"
+                    th:href="@{/venuelist/size/S}">S</a>
+                <a  class="buttonLook filterButton" th:classappend="(${filterSize}=='M') ? 'activeFilter' : ''"
+                    th:href="@{/venuelist/size/M}">M</a>
+                <a  class="buttonLook filterButton" th:classappend="(${filterSize}=='L') ? 'activeFilter' : ''"
+                    th:href="@{/venuelist/size/L}">L</a>
+            </div>
         </div>
         <div th:each="venue: ${venues}">
             <a class="buttonLook mediumButton"
