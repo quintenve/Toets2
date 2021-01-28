@@ -34,13 +34,8 @@ public class ArtistController {
     @GetMapping("/artistlist/filter")
     public String artistListWithFilter(Model model,
                                        @RequestParam(required = false) String keyword) {
-        logger.info(String.format("artistListWithFilter -- keyword=%s",keyword));
-
-        List<Artist> artists;
-        if (keyword != null)
-            artists = artistRepository.findByArtistNameContainingIgnoreCase(keyword);
-        else
-            artists = artistRepository.findAllBy();
+        logger.info(String.format("artistListWithFilter -- keyword=%s", keyword));
+        List<Artist> artists = artistRepository.findByKeyword(keyword);
 
         model.addAttribute("artists", artists);
         model.addAttribute("nrOfArtists", artists.size());
