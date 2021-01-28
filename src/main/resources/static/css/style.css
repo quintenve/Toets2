@@ -59,6 +59,10 @@ a {
     height: 150px;
 }
 
+.freespaceforheader {
+    margin: 150px 0 20px 0;
+}
+
 .navbuttons {
     display: flex;
 }
@@ -80,8 +84,7 @@ a {
 .row1 {
     display: flex;
     position: relative;
-    margin: 100px 0 20px 0;
-    min-height: 500px;
+    margin: 20px 0 20px 0;
 }
 
 .row1 img {
@@ -91,7 +94,7 @@ a {
 
 .row1content {
     flex-grow: 4;
-    margin: 40px 250px 40px 50px;
+    margin: 0 50px;
 }
 
 .row1content ul {
@@ -102,7 +105,14 @@ a {
     list-style: none;
 }
 
+.cols2 {
+    position: relative;
+}
+
 .filters {
+    margin: 15px 50px 0 0;
+    float: left;
+    width: 30%;
 }
 
 .onefilter {
@@ -190,8 +200,12 @@ a.linkLook:hover {
     color: #989572;
 }
 
+/* list page only */
+.venuelist {
+    float: left;
+}
 
-/* venue page only */
+/* details page only */
 .venueinfo {
 }
 

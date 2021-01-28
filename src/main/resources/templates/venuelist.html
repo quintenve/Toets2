@@ -12,12 +12,21 @@
 <div class="row1">
     <div class="row1content">
         <h2>venues</h2>
-        <div class="filters">
-        </div>
-        <div th:each="venue: ${venues}">
-            <a class="buttonLook mediumButton"
-               th:href="@{|/venuedetails/${venue.id}|}"
-               th:text="${venue.venueName}">venue name</a>
+        <div class="cols2">
+            <div th:unless="${showFilters}" class="filters">
+                <a class="buttonLook filterButton" th:href="@{/venuelist/filter}">filter</a>
+            </div>
+            <div th:if="${showFilters}" class="filters">
+                <a class="buttonLook filterButton" th:href="@{/venuelist}">-</a>
+                <div>hier komen de filters</div>
+            </div>
+            <div class="venuelist">
+                <div th:each="venue: ${venues}">
+                    <a class="buttonLook mediumButton"
+                       th:href="@{|/venuedetails/${venue.id}|}"
+                       th:text="${venue.venueName}">venue name</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
