@@ -13,35 +13,6 @@
     <div class="row1content">
         <h2>venues</h2>
         <div class="filters">
-            <div class="onefilter">
-                <div class="filtername">outdoor:</div>
-                <a  class="buttonLook filterButton" th:classappend="(${filterOutdoor}==null) ? 'activeFilter' : ''"
-                    th:href="@{/venuelist}">all</a>
-                <a  class="buttonLook filterButton" th:classappend="(${filterOutdoor}=='yes') ? 'activeFilter' : ''"
-                    th:href="@{/venuelist/outdoor/yes}">yes</a>
-                <a  class="buttonLook filterButton" th:classappend="(${filterOutdoor}=='no') ? 'activeFilter' : ''"
-                    th:href="@{/venuelist/outdoor/no}">no</a>
-            </div>
-            <div class="onefilter">
-                <div class="filtername">indoor:</div>
-                <a  class="buttonLook filterButton" th:classappend="(${filterIndoor}==null) ? 'activeFilter' : ''"
-                   th:href="@{/venuelist}">all</a>
-                <a  class="buttonLook filterButton" th:classappend="(${filterIndoor}=='yes') ? 'activeFilter' : ''"
-                    th:href="@{/venuelist/indoor/yes}">yes</a>
-                <a  class="buttonLook filterButton" th:classappend="(${filterIndoor}=='no') ? 'activeFilter' : ''"
-                   th:href="@{/venuelist/indoor/no}">no</a>
-            </div>
-            <div class="onefilter">
-                <div class="filtername">size:</div>
-                <a  class="buttonLook filterButton" th:classappend="(${filterSize}==null) ? 'activeFilter' : ''"
-                    th:href="@{/venuelist}">all</a>
-                <a  class="buttonLook filterButton" th:classappend="(${filterSize}=='S') ? 'activeFilter' : ''"
-                    th:href="@{/venuelist/size/S}">S</a>
-                <a  class="buttonLook filterButton" th:classappend="(${filterSize}=='M') ? 'activeFilter' : ''"
-                    th:href="@{/venuelist/size/M}">M</a>
-                <a  class="buttonLook filterButton" th:classappend="(${filterSize}=='L') ? 'activeFilter' : ''"
-                    th:href="@{/venuelist/size/L}">L</a>
-            </div>
         </div>
         <div th:each="venue: ${venues}">
             <a class="buttonLook mediumButton"

@@ -15,51 +15,10 @@ public class VenueController {
     @Autowired
     private VenueRepository venueRepository;
 
-    @GetMapping({"/venuelist", "/venuelist/outdoor", "/venuelist/outdoor/all"})
+    @GetMapping({"/venuelist"})
     public String venuelist(Model model) {
         final Iterable<Venue> allVenues = venueRepository.findAll();
         model.addAttribute("venues", allVenues);
-        return "venuelist";
-    }
-
-    @GetMapping("/venuelist/outdoor/{filter}")
-    public String venueListOutdoorYes(Model model, @PathVariable String filter) {
-        final Iterable<Venue> venues = venueRepository.findByOutdoor(filter.equals("yes"));
-        model.addAttribute("venues", venues);
-        model.addAttribute("filterOutdoor", filter.equals("yes") ? "yes" : "no");
-        return "venuelist";
-    }
-
-    @GetMapping("/venuelist/indoor/{filter}")
-    public String venueListIndoor(Model model,
-                                  @PathVariable String filter) {
-        Iterable<Venue> venues = venueRepository.findByIndoor(filter.equals("yes"));
-        model.addAttribute("venues", venues);
-        model.addAttribute("filterIndoor", filter.equals("yes") ? "yes" : "no");
-        return "venuelist";
-    }
-
-    @GetMapping("/venuelist/size/{filter}")
-    public String venueListSize(Model model,
-                                @PathVariable String filter) {
-        Iterable<Venue> venues;
-        switch (filter) {
-            case "S":
-                venues = venueRepository.findByCapacityBetween(0, 200);
-                break;
-            case "M":
-                venues = venueRepository.findByCapacityBetween(200, 600);
-                break;
-            case "L":
-                venues = venueRepository.findByCapacityGreaterThan(600);
-                break;
-            default:
-                venues = venueRepository.findAll();
-                filter = null;
-                break;
-        }
-        model.addAttribute("venues", venues);
-        model.addAttribute("filterSize", filter);
         return "venuelist";
     }
 
