@@ -12,10 +12,31 @@
 <div class="row1">
     <div class="row1content">
         <h2>artists</h2>
-        <div th:each="artist:${artists}">
-            <a class="buttonLook mediumButton"
-               th:href="@{|/artistdetails/${artist.id}|}"
-               th:text="${artist.artistName}">artist name</a>
+        <div class="cols2">
+            <div th:text="|${nrOfArtists} artists found|">10 artists</div>
+            <div th:unless="${showFilters}" class="filters">
+                <a class="buttonLook filterButton" th:href="@{/artistlist/filter}">filter</a>
+            </div>
+            <div th:if="${showFilters}" class="filters">
+                <a class="buttonLook filterButton" th:href="@{/artistlist}">-</a>
+                <form>
+                    <div class="onefilter">
+                        <input type="submit" value="search" class="buttonLook filterButton">
+                    </div>
+                    <h3>keyword</h3>
+                    <div class="onefilter">
+                        <label for="keyword" class="filtername"></label>
+                        <input type="text" id="keyword" name="keyword" th:value="${keyword}" value="0">
+                    </div>
+                </form>
+            </div>
+            <div class="venuelist">
+                <div th:each="artist:${artists}">
+                    <a class="buttonLook mediumButton"
+                       th:href="@{|/artistdetails/${artist.id}|}"
+                       th:text="${artist.artistName}">artist name</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
