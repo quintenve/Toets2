@@ -18,8 +18,8 @@ public interface VenueRepository extends CrudRepository<Venue, Integer> {
     @Query("SELECT v FROM Venue v WHERE :min <= v.capacity AND v.capacity <= :max")
     List<Venue> findByCapacityBetween(@Param("min") int min, @Param("max") int max);
 
-    @Query("SELECT v FROM Venue v WHERE :min <= v.capacity")
-    List<Venue> findByCapacityGreaterThan(@Param("min") int min);
+    @Query("SELECT v FROM Venue v WHERE :min IS NULL OR :min <= v.capacity")
+    List<Venue> findByCapacityGreaterThan(@Param("min") Integer min);
 
     Optional<Venue> findFirstByIdLessThanOrderByIdDesc(Integer id);
 

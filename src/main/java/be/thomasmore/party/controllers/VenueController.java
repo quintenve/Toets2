@@ -47,7 +47,7 @@ public class VenueController {
             if (maxCapacity != null) //min==null and max!=null
                 venues = venueRepository.findByCapacityBetween(0, maxCapacity);
             else //min==null and max==null
-                venues = venueRepository.findAllBy();
+                venues = venueRepository.findByCapacityGreaterThan(minCapacity);
 
         model.addAttribute("venues", venues);
         model.addAttribute("nrOfVenues", venues.size());
