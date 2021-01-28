@@ -36,9 +36,13 @@ public class VenueController {
     public String venueListWithFilter(Model model,
                                       @RequestParam(required = false) Integer minCapacity,
                                       @RequestParam(required = false) Integer maxCapacity,
-                                      @RequestParam(required = false) Integer maxDistance) {
+                                      @RequestParam(required = false) Integer maxDistance,
+                                      @RequestParam(required = false) String filterFood) {
         logger.info(String.format("venueListWithFilter -- min=%d, max=%d, distance=%d", minCapacity, maxCapacity, maxDistance));
-        List<Venue> venues = venueRepository.findByFilter(minCapacity, maxCapacity, maxDistance);
+
+        Boolean foodForJPQL = (filterFood == null || filterFood.equals("all")) ? null : filterFood.equals("yes");
+        List<Venue> venues = venueRepository.findByFilter(minCapacity, maxCapacity, maxDistance, foodForJPQL);
+
 
         model.addAttribute("venues", venues);
         model.addAttribute("nrOfVenues", venues.size());
@@ -46,6 +50,7 @@ public class VenueController {
         model.addAttribute("minCapacity", minCapacity);
         model.addAttribute("maxCapacity", maxCapacity);
         model.addAttribute("maxDistance", maxDistance);
+        model.addAttribute("filterFood", filterFood);
         return "venuelist";
     }
 

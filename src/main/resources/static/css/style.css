@@ -116,8 +116,21 @@ a {
 }
 
 .onefilter {
-    margin: 2px 0;
     display: flex;
+    margin: 2px 0;
+}
+
+.onefilter input {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.onefilter input[type="text" i] {
+    width: 15em;
+}
+
+.onefilter input[type="number" i] {
+    width: 5em;
 }
 .onefilter input {
     margin-left: 3px;
@@ -125,7 +138,7 @@ a {
 }
 .filtername {
     width: 4em;
-    padding: 0.2em;
+    text-align: right;
 }
 
 .buttons {

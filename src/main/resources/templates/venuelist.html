@@ -38,6 +38,21 @@
                         <input type="number" id="maxDistance" name="maxDistance" value="1"
                                th:value="${maxDistance} ? ${maxDistance} : ''" step="1"> km
                     </div>
+                    <h3>food</h3>
+                    <div class="onefilter">
+                        <label for="food_yes" class="filtername">yes</label>
+                        <input type="radio" id="food_yes" name="filterFood" value="yes"
+                               th:checked="${filterFood=='yes'}">
+                    </div>
+                    <div class="onefilter">
+                        <label for="food_no" class="filtername">no</label>
+                        <input type="radio" id="food_no" name="filterFood" value="no" th:checked="${filterFood=='no'}">
+                    </div>
+                    <div class="onefilter">
+                        <label for="food_all" class="filtername">all</label>
+                        <input type="radio" id="food_all" name="filterFood" value="all"
+                               th:checked="${filterFood=='all'}">
+                    </div>
 
                 </form>
             </div>
