@@ -32,6 +32,13 @@
                         <label for="maxCapacity" class="filtername">max</label>
                         <input type="number" id="maxCapacity" name="maxCapacity" th:value="${maxCapacity}" value="5000" step="50"> persons
                     </div>
+                    <h3>distance from public transport</h3>
+                    <div class="onefilter">
+                        <label for="maxDistance" class="filtername">max</label>
+                        <input type="number" id="maxDistance" name="maxDistance" value="1"
+                               th:value="${maxDistance} ? ${maxDistance} : ''" step="1"> km
+                    </div>
+
                 </form>
             </div>
             <div class="venuelist">
