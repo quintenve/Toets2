@@ -159,11 +159,16 @@ a.largeButton {
     padding: 1em;
 }
 
+
 a.mediumButton {
     margin: 10px auto;
     width: 400px;
     font-size: 1.2em;
     padding: 1em;
+}
+
+.venueExtraInfo {
+    font-size: small;
 }
 
 a.smallButton {

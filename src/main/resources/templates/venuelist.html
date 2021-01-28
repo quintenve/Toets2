@@ -24,8 +24,11 @@
             <div class="venuelist">
                 <div th:each="venue: ${venues}">
                     <a class="buttonLook mediumButton"
-                       th:href="@{|/venuedetails/${venue.id}|}"
-                       th:text="${venue.venueName}">venue name</a>
+                       th:href="@{|/venuedetails/${venue.id}|}">
+                        <span th:text="${venue.venueName}">venue name </span>
+                        <div th:text="|capacity ${venue.capacity}|" class="venueExtraInfo">maxNrOfPersons</div>
+                    </a>
+
                 </div>
             </div>
         </div>
