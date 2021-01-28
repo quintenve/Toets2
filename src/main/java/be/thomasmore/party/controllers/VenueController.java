@@ -42,12 +42,12 @@ public class VenueController {
             if (maxCapacity != null) //min!=null and max!=null
                 venues = venueRepository.findByCapacityBetween(minCapacity, maxCapacity);
             else //min!=null and max==null
-                venues = venueRepository.findByCapacityGreaterThan(minCapacity);
+                venues = venueRepository.findByCapacityBetween(minCapacity, maxCapacity);
         else // min==null
             if (maxCapacity != null) //min==null and max!=null
-                venues = venueRepository.findByCapacityBetween(0, maxCapacity);
+                venues = venueRepository.findByCapacityBetween(minCapacity, maxCapacity);
             else //min==null and max==null
-                venues = venueRepository.findByCapacityGreaterThan(minCapacity);
+                venues = venueRepository.findByCapacityBetween(minCapacity, maxCapacity);
 
         model.addAttribute("venues", venues);
         model.addAttribute("nrOfVenues", venues.size());
