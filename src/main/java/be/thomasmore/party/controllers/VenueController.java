@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class VenueController {
-    private Logger logger = LoggerFactory.getLogger(VenueController.class);
+    private final Logger logger = LoggerFactory.getLogger(VenueController.class);
 
     @Autowired
     private VenueRepository venueRepository;
@@ -35,16 +36,16 @@ public class VenueController {
     public String venueListWithFilter(Model model,
                                       @RequestParam(required = false) Integer minCapacity) {
         logger.info(String.format("venueListWithFilter -- min=%d", minCapacity));
-        Iterable<Venue> venues;
+        List<Venue> venues;
         if (minCapacity != null)
             venues = venueRepository.findByCapacityGreaterThan(minCapacity);
         else
-            venues = venueRepository.findAll();
+            venues = venueRepository.findAllBy();
 
-        long nrOfVenues = venueRepository.count();
         model.addAttribute("venues", venues);
-        model.addAttribute("nrOfVenues", nrOfVenues);
+        model.addAttribute("nrOfVenues", venues.size());
         model.addAttribute("showFilters", true);
+        model.addAttribute("minCapacity", minCapacity);
         return "venuelist";
     }
 
