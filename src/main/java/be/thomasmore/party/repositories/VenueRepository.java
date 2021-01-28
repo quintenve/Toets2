@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface VenueRepository extends CrudRepository<Venue, Integer> {
     Iterable<Venue> findByOutdoor(boolean isOutdoor);
     Iterable<Venue> findByIndoor(boolean isIndoor);
-    Iterable<Venue> findByCapacityBetween(int min, int max);
+    List<Venue> findByCapacityBetween(int min, int max);
     List<Venue> findByCapacityGreaterThan(int min);
     List<Venue> findAllBy();
 
