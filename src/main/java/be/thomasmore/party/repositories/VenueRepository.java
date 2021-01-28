@@ -9,11 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface VenueRepository extends CrudRepository<Venue, Integer> {
-    Iterable<Venue> findByOutdoor(boolean isOutdoor);
-
-    Iterable<Venue> findByIndoor(boolean isIndoor);
-
-    List<Venue> findAllBy();
 
     @Query("SELECT v FROM Venue v WHERE " +
             "(:min IS NULL OR :min <= v.capacity) AND " +
