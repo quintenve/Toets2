@@ -119,7 +119,10 @@ a {
     margin: 2px 0;
     display: flex;
 }
-
+.onefilter input {
+    margin-left: 3px;
+    margin-right: 3px;
+}
 .filtername {
     width: 4em;
     padding: 0.2em;
@@ -134,8 +137,7 @@ a {
 
 
 /* links that do or don't look like buttons */
-a.buttonLook {
-    display: block;
+.buttonLook {
     background-color: #EDC7CF;
     color: #6A8E7F;
     text-decoration: none;
@@ -143,12 +145,12 @@ a.buttonLook {
     box-shadow: 1px 1px 1px darkgrey;
 }
 
-a.buttonLook:hover {
+.buttonLook:hover {
     background-color: #6A8E7F;
     color: #EDC7CF;
 }
 
-a.buttonLook:active {
+.buttonLook:active {
     background-color: #6A8E7F;
     color: #EDC7CF;
 }
@@ -161,6 +163,7 @@ a.largeButton {
 
 
 a.mediumButton {
+    display: block;
     margin: 10px auto;
     width: 400px;
     font-size: 1.2em;
@@ -183,11 +186,11 @@ a.menuButton {
     padding: 0.2em;
 }
 
-a.filterButton {
-    display: inline;
-    margin: 0 2px;
-    width: 2em;
-    padding: 0.2em;
+.filterButton {
+    margin: 20px 0;
+    padding: .5em;
+    border: none;
+    font-size: medium;
 }
 
 a.activeFilter {
