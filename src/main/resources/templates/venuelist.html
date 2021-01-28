@@ -53,7 +53,38 @@
                         <input type="radio" id="food_all" name="filterFood" value="all"
                                th:checked="${filterFood=='all'}">
                     </div>
-
+                    <h3>indoor</h3>
+                    <div class="onefilter">
+                        <label for="indoor_yes" class="filtername">yes</label>
+                        <input type="radio" id="indoor_yes" name="filterIndoor" value="yes"
+                               th:checked="${filterIndoor=='yes'}">
+                    </div>
+                    <div class="onefilter">
+                        <label for="indoor_no" class="filtername">no</label>
+                        <input type="radio" id="indoor_no" name="filterIndoor" value="no"
+                               th:checked="${filterIndoor=='no'}">
+                    </div>
+                    <div class="onefilter">
+                        <label for="indoor_all" class="filtername">all</label>
+                        <input type="radio" id="indoor_all" name="filterIndoor" value="all"
+                               th:checked="${filterIndoor=='all'}">
+                    </div>
+                    <h3>outdoor</h3>
+                    <div class="onefilter">
+                        <label for="outdoor_yes" class="filtername">yes</label>
+                        <input type="radio" id="outdoor_yes" name="filterOutdoor" value="yes"
+                               th:checked="${filterOutdoor=='yes'}">
+                    </div>
+                    <div class="onefilter">
+                        <label for="outdoor_no" class="filtername">no</label>
+                        <input type="radio" id="outdoor_no" name="filterOutdoor" value="no"
+                               th:checked="${filterOutdoor=='no'}">
+                    </div>
+                    <div class="onefilter">
+                        <label for="outdoor_all" class="filtername">all</label>
+                        <input type="radio" id="outdoor_all" name="filterOutdoor" value="all"
+                               th:checked="${filterOutdoor=='all'}">
+                    </div>
                 </form>
             </div>
             <div class="venuelist">

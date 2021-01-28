@@ -37,12 +37,14 @@ public class VenueController {
                                       @RequestParam(required = false) Integer minCapacity,
                                       @RequestParam(required = false) Integer maxCapacity,
                                       @RequestParam(required = false) Integer maxDistance,
-                                      @RequestParam(required = false) String filterFood) {
-        logger.info(String.format("venueListWithFilter -- min=%d, max=%d, distance=%d", minCapacity, maxCapacity, maxDistance));
+                                      @RequestParam(required = false) String filterFood,
+                                      @RequestParam(required = false) String filterIndoor,
+                                      @RequestParam(required = false) String filterOutdoor) {
+        logger.info(String.format("venueListWithFilter -- min=%d, max=%d, distance=%d, filterFood=%s, filterIndoor=%s, , filterOutdoor=%s",
+                minCapacity, maxCapacity, maxDistance, filterFood, filterIndoor, filterIndoor));
 
-        Boolean foodForJPQL = (filterFood == null || filterFood.equals("all")) ? null : filterFood.equals("yes");
-        List<Venue> venues = venueRepository.findByFilter(minCapacity, maxCapacity, maxDistance, foodForJPQL);
-
+        List<Venue> venues = venueRepository.findByFilter(minCapacity, maxCapacity, maxDistance,
+                filterStringToBoolean(filterFood), filterStringToBoolean(filterIndoor), filterStringToBoolean(filterOutdoor));
 
         model.addAttribute("venues", venues);
         model.addAttribute("nrOfVenues", venues.size());
@@ -51,7 +53,13 @@ public class VenueController {
         model.addAttribute("maxCapacity", maxCapacity);
         model.addAttribute("maxDistance", maxDistance);
         model.addAttribute("filterFood", filterFood);
+        model.addAttribute("filterIndoor", filterIndoor);
+        model.addAttribute("filterOutdoor", filterOutdoor);
+
         return "venuelist";
+    }
+    private Boolean filterStringToBoolean(String filterString) {
+        return (filterString == null || filterString.equals("all")) ? null : filterString.equals("yes");
     }
 
     @GetMapping({"/venuedetails/{id}", "/venuedetails"})
