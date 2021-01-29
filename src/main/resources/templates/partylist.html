@@ -17,7 +17,7 @@
             <div class="venuelist">
                 <div th:each="party:${parties}">
                     <a class="buttonLook mediumButton" th:href="@{|/partydetails/${party.id}|}">
-                        <span th:text="${party.name}">venue name </span>
+                        <span th:text="${party.name}">party name </span>
                     </a>
                 </div>
             </div>

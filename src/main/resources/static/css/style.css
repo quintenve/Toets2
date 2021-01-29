@@ -63,6 +63,7 @@ a {
     margin: 150px 0 20px 0;
 }
 
+/*navigation buttons in header*/
 .navbuttons {
     display: flex;
 }
@@ -84,7 +85,7 @@ a {
 .row1 {
     display: flex;
     position: relative;
-    margin: 20px 0 20px 0;
+    margin: 20px 0;
 }
 
 .row1 img {
@@ -103,6 +104,7 @@ a {
 
 .row1content li {
     list-style: none;
+    margin: 0 50px;
 }
 
 .cols2 {
@@ -228,6 +230,11 @@ a.linkLook:hover {
 
 /* details page only */
 .venueinfo {
+    margin: 30px 0;
+}
+
+.venueExtraInfo {
+    font-size: small;
 }
 
 .infoLine {

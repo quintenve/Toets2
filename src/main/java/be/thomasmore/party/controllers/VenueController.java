@@ -1,6 +1,8 @@
 package be.thomasmore.party.controllers;
 
+import be.thomasmore.party.model.Party;
 import be.thomasmore.party.model.Venue;
+import be.thomasmore.party.repositories.PartyRepository;
 import be.thomasmore.party.repositories.VenueRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +22,9 @@ public class VenueController {
 
     @Autowired
     private VenueRepository venueRepository;
+
+    @Autowired
+    private PartyRepository partyRepository;
 
     @GetMapping({"/venuelist"})
     public String venueList(Model model) {
@@ -58,6 +63,7 @@ public class VenueController {
 
         return "venuelist";
     }
+
     private Boolean filterStringToBoolean(String filterString) {
         return (filterString == null || filterString.equals("all")) ? null : filterString.equals("yes");
     }
@@ -70,6 +76,8 @@ public class VenueController {
         //noinspection OptionalIsPresent
         if (venueFromDb.isPresent()) {
             model.addAttribute("venue", venueFromDb.get());
+            Iterable<Party> parties = partyRepository.findByVenue(venueFromDb.get());
+            model.addAttribute("parties", parties);
         }
         return "venuedetails";
     }
