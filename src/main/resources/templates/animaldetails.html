@@ -1,0 +1,59 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+    <title>Let's Party!</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+
+
+<div class="row1">
+    <div class="row1content" th:if="${animal}">
+
+        <div class="prevButtonDiv">
+            <a class="buttonLook smallButton" th:href="@{|/animaldetails/${prevId}|}">&lt;</a>
+        </div>
+        <div class="nextButtonDiv">
+            <a class="buttonLook smallButton" th:href="@{|/animaldetails/${nextId}|}">&gt;</a>
+        </div>
+
+        <h2 th:text="${animal.name}">animaldetails</h2>
+
+        <div class="venueinfo">
+            <div class="infoLine">
+                <div class="infoLineName">city</div>
+                <div class="infoLineValue" th:text="${animal.city}">city</div>
+            </div>
+        </div>
+        <div class="venueinfo">
+            <div class="infoLine">
+                <div class="infoLineName">bio</div>
+                <div class="infoLineValue" th:text="${animal.bio}">bio</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row1content" th:unless="${animal}">
+        <p>no animal was chosen</p>
+    </div>
+</div>
+
+<div class="row1">
+    <div class="row1content" th:if="${animal}">
+        <h2>Going to </h2>
+
+        <div class="venuelist">
+            <div th:each="party:${animal.parties}">
+                <a class="buttonLook mediumButton" th:href="@{|/partydetails/${party.id}|}">
+                    <span th:text="${party.name}">venue name </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">Footer</div>
+
+</body>
+</html>

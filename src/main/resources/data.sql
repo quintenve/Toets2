@@ -166,14 +166,22 @@ INSERT INTO PARTY_ARTISTS (PARTIES_ID, ARTISTS_ID) VALUES (3, 3);
 INSERT INTO PARTY_ARTISTS (PARTIES_ID, ARTISTS_ID) VALUES (3, 5);
 INSERT INTO PARTY_ARTISTS (PARTIES_ID, ARTISTS_ID) VALUES (4, 5);
 
-INSERT INTO ANIMAL (ID, NAME) VALUES (1, 'Gillende Giraf');
-INSERT INTO ANIMAL (ID, NAME) VALUES (2, 'Dorstige Dromedaris');
-INSERT INTO ANIMAL (ID, NAME) values (3, 'Dansende Draak');
-INSERT INTO ANIMAL (ID, NAME) values (4, 'Zingende Zebra');
-INSERT INTO ANIMAL (ID, NAME) values (5, 'Drinkende Das');
-INSERT INTO ANIMAL (ID, NAME) values (6, 'Zuipende Zalm');
-INSERT INTO ANIMAL (ID, NAME) values (7, 'Feestende Flamingo');
-INSERT INTO ANIMAL (ID, NAME) values (8, 'Kotsende Kikker');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+VALUES (1, 'Gillende Giraf', 'Mechelen','maakt altijd veel lawaai');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+VALUES (2, 'Dorstige Dromedaris', 'Leest','drinkt alles op');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (3, 'Dansende Draak', 'Hombeek','de stukken vliegen ervan af');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (4, 'Zingende Zebra', 'Leest','denkt dat hij goed kan zingen');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (5, 'Drinkende Das', 'Hombeek','stopt niet');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (6, 'Zuipende Zalm', 'Rumst','die wil je niet op je feest');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (7, 'Feestende Flamingo', 'Mechelen','jeeeee');
+INSERT INTO ANIMAL (ID, NAME, CITY, BIO)
+values (8, 'Kotsende Kikker', 'Mechelen','aie aie aie');
 
 INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (1,1);
 INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (2,2);

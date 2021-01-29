@@ -1,7 +1,6 @@
 package be.thomasmore.party.controllers;
 
 import be.thomasmore.party.model.Party;
-import be.thomasmore.party.model.Venue;
 import be.thomasmore.party.repositories.PartyRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

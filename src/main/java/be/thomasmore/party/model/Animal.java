@@ -51,4 +51,12 @@ public class Animal {
     public void setBio(String bio) {
         this.bio = bio;
     }
+
+    public Collection<Party> getParties() {
+        return parties;
+    }
+
+    public void setParties(Collection<Party> parties) {
+        this.parties = parties;
+    }
 }
