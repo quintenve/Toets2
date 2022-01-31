@@ -19,8 +19,45 @@
 <div class="row1">
     <div class="row1content" th:if="${venue}">
         <h2 th:text="${venue.venueName}">venuedetails</h2>
-        <p><a th:href="${venue.linkMoreInfo}" th:text="${venue.linkMoreInfo}" target="_blank">linkMoreIfo</a></p>
 
+        <div class="venueinfo">
+            <div class="infoLine">
+                <div class="infoLineName">info:</div>
+                <div class="infoLineValue">
+                    <a th:href="${venue.linkMoreInfo}" th:text="${venue.linkMoreInfo}" target="_blank">linkMoreIfo</a>
+                </div>
+            </div>
+            <div class="infoLine">
+                <div class="infoLineName">max number of persons:</div>
+                <div class="infoLineValue" th:text="${venue.capacity}">max number of persons</div>
+            </div>
+            <div class="infoLine">
+                <div class="infoLineName">food provided:</div>
+                <div class="infoLineValue" th:text="${venue.isFoodProvided() ? 'yes' : 'no'}">isFoodProvided</div>
+            </div>
+            <div class="infoLine">
+                <div class="infoLineName">indoor:</div>
+                <div class="infoLineValue" th:text="${venue.isIndoor() ? 'yes' : 'no'}">isIndoor</div>
+            </div>
+            <div class="infoLine">
+                <div class="infoLineName">outdoor:</div>
+                <div class="infoLineValue" th:text="${venue.isOutdoor() ? 'yes' : 'no'}">isOutdoor</div>
+            </div>
+            <div class="infoLine">
+                <div class="infoLineName">free parking:</div>
+                <div class="infoLineValue" th:text="${venue.isFreeParkingAvailable() ? 'yes' : 'no'}">
+                    isFreeParkingAvailable
+                </div>
+            </div>
+            <div class="infoLine">
+                <div class="infoLineName">city:</div>
+                <div class="infoLineValue" th:text="${venue.city}">city</div>
+            </div>
+            <div class="infoLine">
+                <div class="infoLineName">distance from public transport:</div>
+                <div class="infoLineValue" th:text="${venue.distanceFromPublicTransportInKm} + ' km'">city</div>
+            </div>
+        </div>
     </div>
     <div class="row1content" th:unless="${venue}">
         <p>no venue was chosen</p>
