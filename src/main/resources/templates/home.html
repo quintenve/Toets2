@@ -6,25 +6,16 @@
     <title>home</title>
 </head>
 <body>
-<div class="nav">
-    <h1>Let's Party!</h1>
-    <div class="navbuttons">
-        <a class="buttonLook menuButton" th:href="@{/home}">home</a>
-        <a class="buttonLook menuButton" th:href="@{/venuelist}">venues</a>
-        <a class="buttonLook menuButton" th:href="@{/about}">about</a>
-    </div>
-</div>
+<div th:replace="fragments/header :: header">Header</div>
 
-<h1>Hello</h1>
+
 <div class="row1">
     <div class="row1content">
         <p th:text="${myCalculatedValue}">myCalculatedValue</p>
     </div>
 </div>
 
-<div class="bottom">
-    <p>copyright ThomasMore</p>
-</div>
+<div th:replace="fragments/footer :: footer">Footer</div>
 
 </body>
 </html>
