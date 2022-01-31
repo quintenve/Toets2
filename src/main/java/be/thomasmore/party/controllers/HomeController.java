@@ -15,7 +15,9 @@ public class HomeController {
     }
 
     @GetMapping("/about")
-    public String about() {
+    public String about(Model model) {
+        int myCalculatedValue = 52 + 44 * 210;
+        model.addAttribute("myCalculatedValue", myCalculatedValue);
         return "about";
     }
 }

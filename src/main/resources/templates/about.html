@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
     <title>about</title>
 </head>
 <body>
 <h1>About me</h1>
 blabla blabla blabla bla
+<p th:text="${myCalculatedValue}">myCalculatedValue</p>
 </body>
 </html>
