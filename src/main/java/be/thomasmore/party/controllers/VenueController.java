@@ -15,6 +15,11 @@ public class VenueController {
     @Autowired
     private VenueRepository venueRepository;
 
+    @GetMapping("/venuelist")
+    public String venuelist(Model model) {
+        return "venuelist";
+    }
+
     @GetMapping("/venuedetails/{id}")
     public String venuedetails(Model model, @PathVariable int id) {
         //Venue venue = new Venue("Boesj", "https://www.facebook.com/boesjkammeree/", 100, false, true, false, false, "Mechelen", 1);

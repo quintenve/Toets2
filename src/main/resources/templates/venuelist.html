@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
     <title>home</title>
 </head>
 <body>
@@ -15,10 +15,12 @@
     </div>
 </div>
 
-<h1>Hello</h1>
 <div class="row1">
     <div class="row1content">
-        <p th:text="${myCalculatedValue}">myCalculatedValue</p>
+        <h2>venues</h2>
+        <div><a class="buttonLook mediumButton" th:href="@{/venuedetails/1}">venue 1</a></div>
+        <div><a class="buttonLook mediumButton" th:href="@{/venuedetails/2}">venue 2</a></div>
+        <div><a class="buttonLook mediumButton" th:href="@{/venuedetails/3}">venue 3</a></div>
     </div>
 </div>
 
