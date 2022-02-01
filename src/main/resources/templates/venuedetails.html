@@ -11,6 +11,13 @@
 
 <div class="row1">
     <div class="row1content" th:if="${venue}">
+        <div class="prevButtonDiv">
+            <a class="buttonLook smallButton" th:href="@{|/venuedetails/${venue.id}/prev|}">&lt;</a>
+        </div>
+        <div class="nextButtonDiv">
+            <a class="buttonLook smallButton" th:href="@{|/venuedetails/${venue.id}/next|}">&gt;</a>
+        </div>
+
         <h2 th:text="${venue.venueName}">venuedetails</h2>
 
         <div class="venueinfo">

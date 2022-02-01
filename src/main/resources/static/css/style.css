@@ -157,8 +157,9 @@ a.mediumButton {
 }
 
 a.smallButton {
-    font-size: 1.5em;
-    padding: 1em;
+    display: block;
+    font-size: 1em;
+    padding: 0.5em;
 }
 
 a.menuButton {
@@ -212,15 +213,15 @@ a.linkLook:hover {
 }
 
 .prevButtonDiv {
-    position: absolute;
-    left: 50px;
-    bottom: 50px;
+    position: fixed;
+    left: 10px;
+    top: 160px;
 }
 
 .nextButtonDiv {
-    position: absolute;
-    right: 50px;
-    bottom: 50px;
+    position: fixed;
+    right: 10px;
+    top: 160px;
 
 }
 
