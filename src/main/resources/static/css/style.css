@@ -84,6 +84,11 @@ a {
     min-height: 500px;
 }
 
+.row1 img {
+    width: 100%;
+    height: auto;
+}
+
 .row1content {
     flex-grow: 4;
     margin: 40px 250px 40px 50px;
