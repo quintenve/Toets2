@@ -15,19 +15,18 @@ public class VenueController {
     @Autowired
     private VenueRepository venueRepository;
 
-    @GetMapping("/venuelist")
+    @GetMapping({"/venuelist", "/venuelist/outdoor", "/venuelist/outdoor/all"})
     public String venuelist(Model model) {
         final Iterable<Venue> allVenues = venueRepository.findAll();
         model.addAttribute("venues", allVenues);
-        model.addAttribute("filterOutdoor", "all");
         return "venuelist";
     }
 
     @GetMapping("/venuelist/outdoor/{filter}")
     public String venueListOutdoorYes(Model model, @PathVariable String filter) {
-        Iterable<Venue> venues = venueRepository.findByOutdoor(filter.equals("yes"));
+        final Iterable<Venue> venues = venueRepository.findByOutdoor(filter.equals("yes"));
         model.addAttribute("venues", venues);
-        model.addAttribute("filterOutdoor", filter);
+        model.addAttribute("filterOutdoor", filter.equals("yes") ? "yes" : "no");
         return "venuelist";
     }
 

@@ -19,7 +19,7 @@
                     th:href="@{/venuelist/outdoor/yes}">yes</a>
                 <a  class="buttonLook filterButton" th:classappend="(${filterOutdoor}=='no') ? 'activeFilter' : ''"
                     th:href="@{/venuelist/outdoor/no}">no</a>
-                <a  class="buttonLook filterButton" th:classappend="(${filterOutdoor}=='all') ? 'activeFilter' : ''"
+                <a  class="buttonLook filterButton" th:classappend="(${filterOutdoor}==null) ? 'activeFilter' : ''"
                     th:href="@{/venuelist}">all</a>
             </div>
         </div>
