@@ -1,6 +1,7 @@
 package be.thomasmore.party.controllers;
 
 import be.thomasmore.party.model.Artist;
+import be.thomasmore.party.model.Venue;
 import be.thomasmore.party.repositories.ArtistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,28 @@ public class ArtistController {
         if (optionalArtist.isPresent()) {
             model.addAttribute("artist", optionalArtist.get());
         }
+        return "artistdetails";
+    }
+
+    @GetMapping({"/artistdetails/{id}/prev"})
+    public String artistdetailsPrev(Model model, @PathVariable int id) {
+        Optional<Artist> prevArtistFromDb = artistRepository.findFirstByIdLessThanOrderByIdDesc(id);
+        if (prevArtistFromDb.isPresent())
+            return String.format("redirect:/artistdetails/%d", prevArtistFromDb.get().getId());
+        Optional<Artist> lastArtistFromDb = artistRepository.findFirstByOrderByIdDesc();
+        if (lastArtistFromDb.isPresent())
+            return String.format("redirect:/artistdetails/%d", lastArtistFromDb.get().getId());
+        return "artistdetails";
+    }
+
+    @GetMapping({"/artistdetails/{id}/next"})
+    public String artistdetailsNext(Model model, @PathVariable int id) {
+        Optional<Artist> nextArtistFromDb = artistRepository.findFirstByIdGreaterThanOrderByIdAsc(id);
+        if (nextArtistFromDb.isPresent())
+            return String.format("redirect:/artistdetails/%d", nextArtistFromDb.get().getId());
+        Optional<Artist> firstArtistFromDb = artistRepository.findFirstByOrderByIdAsc();
+        if (firstArtistFromDb.isPresent())
+            return String.format("redirect:/artistdetails/%d", firstArtistFromDb.get().getId());
         return "artistdetails";
     }
 
