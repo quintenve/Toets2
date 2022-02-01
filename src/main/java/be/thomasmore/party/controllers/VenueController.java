@@ -17,12 +17,15 @@ public class VenueController {
 
     @GetMapping("/venuelist")
     public String venuelist(Model model) {
+        final Iterable<Venue> allVenues = venueRepository.findAll();
+        model.addAttribute("venues", allVenues);
         return "venuelist";
     }
 
     @GetMapping({"/venuedetails/{id}", "/venuedetails"})
     public String venuedetails(Model model, @PathVariable(required = false) Integer id) {
         if (id == null) return "venuedetails";
+
         Optional<Venue> venueFromDb = venueRepository.findById(id);
         //noinspection OptionalIsPresent
         if (venueFromDb.isPresent()) {

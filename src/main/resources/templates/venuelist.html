@@ -12,9 +12,11 @@
 <div class="row1">
     <div class="row1content">
         <h2>venues</h2>
-        <div><a class="buttonLook mediumButton" th:href="@{/venuedetails/1}">venue 1</a></div>
-        <div><a class="buttonLook mediumButton" th:href="@{/venuedetails/2}">venue 2</a></div>
-        <div><a class="buttonLook mediumButton" th:href="@{/venuedetails/3}">venue 3</a></div>
+        <div th:each="venue: ${venues}">
+            <a class="buttonLook mediumButton"
+               th:href="@{|/venuedetails/${venue.id}|}"
+               th:text="${venue.venueName}">venue name</a>
+        </div>
     </div>
 </div>
 
