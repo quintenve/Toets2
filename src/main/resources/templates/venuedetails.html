@@ -2,8 +2,8 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
-    <title>home</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+    <title>Let's Party!</title>
 </head>
 <body>
 <div class="nav">
@@ -15,10 +15,15 @@
     </div>
 </div>
 
-<h1>Hello</h1>
+
 <div class="row1">
-    <div class="row1content">
-        <p th:text="${myCalculatedValue}">myCalculatedValue</p>
+    <div class="row1content" th:if="${venue}">
+        <h2 th:text="${venue.venueName}">venuedetails</h2>
+        <p><a th:href="${venue.linkMoreInfo}" th:text="${venue.linkMoreInfo}" target="_blank">linkMoreIfo</a></p>
+
+    </div>
+    <div class="row1content" th:unless="${venue}">
+        <p>no venue was chosen</p>
     </div>
 </div>
 

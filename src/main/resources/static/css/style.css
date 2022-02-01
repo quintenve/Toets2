@@ -58,6 +58,9 @@ a {
     color: #EDC7CF;
     height: 150px;
 }
+.navbuttons {
+    display: flex;
+}
 
 .bottom {
     background-color: #6A8E7F;
@@ -139,10 +142,9 @@ a.smallButton {
     padding: 1em;
 }
 a.menuButton {
-    margin: 10px;
-    width: 120px;
-    padding: 0.2em;
-}
+    margin: 0 10px;
+    width: 6em;
+    padding: 0.2em;}
 
 a.linkLook {
     background-color: transparent;

@@ -6,13 +6,17 @@
     <title>about</title>
 </head>
 <body>
-<h1>About me</h1>
-blabla blabla blabla bla
 <div class="nav">
     <h1>Let's Party!</h1>
-    <a class="buttonLook menuButton" th:href="@{/}">home</a>
+    <div class="navbuttons">
+        <a class="buttonLook menuButton" th:href="@{/home}">home</a>
+        <a class="buttonLook menuButton" th:href="@{/venuedetails}">venuedetails</a>
+        <a class="buttonLook menuButton" th:href="@{/about}">about</a>
+    </div>
 </div>
 
+<h1>About me</h1>
+blabla blabla blabla bla
 <div class="row1">
     <div class="row1content">
         <h1>About me</h1>
