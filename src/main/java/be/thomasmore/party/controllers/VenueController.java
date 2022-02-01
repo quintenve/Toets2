@@ -76,37 +76,35 @@ public class VenueController {
     }
 
     /*
-     * prev/next buttons - first solution:
-     * find correct venue and display it in the view
+     * prev/next buttons - second solution:
+     * find correct venue and get its id
+     * then send a REDIRECT to the browser for the normal url with this id
      *
      * if rows were removed from the db this will still work.
+     * we always see a logical url
      *
-     * disadvantage: the url does not contain the id of the shown venue - this is weird
+     * disadvantage: we have to access the database 2x (or 3x if the current one is the first one)
      */
 
     @GetMapping({"/venuedetails/{id}/prev"})
     public String venuedetailsPrev(Model model, @PathVariable int id) {
         Optional<Venue> prevVenueFromDb = venueRepository.findFirstByIdLessThanOrderByIdDesc(id);
-        if (prevVenueFromDb.isPresent()) {
-            model.addAttribute("venue", prevVenueFromDb.get());
-        } else {
-            Optional<Venue> lastVenueFromDb = venueRepository.findFirstByOrderByIdDesc();
-            if (lastVenueFromDb.isPresent())
-                model.addAttribute("venue", lastVenueFromDb.get());
-        }
+        if (prevVenueFromDb.isPresent())
+            return String.format("redirect:/venuedetails/%d", prevVenueFromDb.get().getId());
+        Optional<Venue> lastVenueFromDb = venueRepository.findFirstByOrderByIdDesc();
+        if (lastVenueFromDb.isPresent())
+            return String.format("redirect:/venuedetails/%d", lastVenueFromDb.get().getId());
         return "venuedetails";
     }
 
     @GetMapping({"/venuedetails/{id}/next"})
     public String venuedetailsNext(Model model, @PathVariable int id) {
         Optional<Venue> nextVenueFromDb = venueRepository.findFirstByIdGreaterThanOrderByIdAsc(id);
-        if (nextVenueFromDb.isPresent()) {
-            model.addAttribute("venue", nextVenueFromDb.get());
-        } else {
-            Optional<Venue> firstVenueFromDb = venueRepository.findFirstByOrderByIdAsc();
-            if (firstVenueFromDb.isPresent())
-                model.addAttribute("venue", firstVenueFromDb.get());
-        }
+        if (nextVenueFromDb.isPresent())
+            return String.format("redirect:/venuedetails/%d", nextVenueFromDb.get().getId());
+        Optional<Venue> firstVenueFromDb = venueRepository.findFirstByOrderByIdAsc();
+        if (firstVenueFromDb.isPresent())
+            return String.format("redirect:/venuedetails/%d", firstVenueFromDb.get().getId());
         return "venuedetails";
     }
 
