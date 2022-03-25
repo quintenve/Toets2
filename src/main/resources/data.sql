@@ -200,3 +200,12 @@ INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (7,4);
 INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (8,1);
 INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (8,2);
 INSERT INTO ANIMAL_PARTIES(ANIMALS_ID, PARTIES_ID) values (8,3);
+
+
+insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE, PRICE_SIDE_DISH) values(1,'Hamburger', false, true, 8.5, 3.5);
+insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE) values(2,'Pizza', false, false, 12);
+insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE, PRICE_SIDE_DISH) values(3,'Croque Monsieur', false, true, 6.5, 3.5);
+insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE) values(4,'Tajin Chicken', false, false, 14);
+insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE) values(5,'Tajin Vegan', true, false, 15.5);
+insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE, PRICE_SIDE_DISH) values(6,'Salmon Wraps', false, true, 11, 4.5);
+insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE, PRICE_SIDE_DISH) values(7,'Vegan Wraps', true, true, 10.5, 4.5);
