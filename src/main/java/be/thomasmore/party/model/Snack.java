@@ -12,6 +12,7 @@ public class Snack {
     private boolean sideDishPossible;
     private double price;
     private Double priceSideDish;
+    //vraag 2: neen dit gaat niet, met de reden dat een double niet null kan zijn maar een Double wel null kan zijn
 
     public Snack() {
     }

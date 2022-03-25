@@ -1,0 +1,30 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+        <title>Snack List</title>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header">Header</div>
+
+        <div class="row1">
+            <div class="row1content">
+                <h2>Snacks</h2>
+                <div class="cols2">
+                    <div th:text="|${nrOfSnacks} snacks found|">snacks</div>
+                </div>
+                <div class="venuelist">
+                    <div th:each="snack: ${snacks}">
+                        <a class="buttonLook mediumButton"
+                           th:href="@{|/snackdetails/${snack.id}|}">
+                            <span th:text="${snack.name}">snack name </span>
+                            <div th:if="${snack.sideDishPossible}" class="venueExtraInfo">Side dish possible with order</div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
