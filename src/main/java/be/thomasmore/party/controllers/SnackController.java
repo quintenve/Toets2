@@ -64,7 +64,8 @@ public class SnackController {
     }
 
     @GetMapping("/snacklist/filter")
-    public String snackListWithFilter(Model model, @RequestParam (required = false) Double maxPrice, @RequestParam (required = false) String vegan) {
+    public String snackListWithFilter(Model model, @RequestParam (required = false) Double maxPrice, @RequestParam (required = false) String vegan,
+                                      @RequestParam (required = false) String sideDishIncluded) {
 
         Boolean veganBoolean;
         if (vegan == null) {
@@ -76,13 +77,23 @@ public class SnackController {
         } else {
             veganBoolean = null;
         }
+        List<Snack> snacks;
+        boolean sideBoolean = false;
+        if (sideDishIncluded == null) {
+            snacks = snackRepository.findByFilter(maxPrice, veganBoolean);
+        } else if (sideDishIncluded.equals("yes")){
+            snacks = snackRepository.findByFilterSideDishIncl(maxPrice, veganBoolean);
+            sideBoolean = true;
+        } else {
+            snacks = snackRepository.findByFilter(maxPrice, veganBoolean);
+            model.addAttribute("sideDishIncluded", "no");
+        }
 
-
-        List<Snack> snacks = snackRepository.findByFilter(maxPrice, veganBoolean);
 
         model.addAttribute("snacks", snacks);
         model.addAttribute("nrOfSnacks", snacks.size());
         model.addAttribute("maxPrice", maxPrice);
+        model.addAttribute("sideBoolean", sideBoolean);
         model.addAttribute("vegan", vegan);
         model.addAttribute("showFilters", true);
         return "snacklist";
