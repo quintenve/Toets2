@@ -11,7 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -28,6 +30,7 @@ public class SnackController {
         long nrOfSnacks = snackRepository.count();
         model.addAttribute("snacks", snacks);
         model.addAttribute("nrOfSnacks", nrOfSnacks);
+        model.addAttribute("showFilters", false);
         return "snacklist";
     }
 
@@ -60,4 +63,28 @@ public class SnackController {
         return "snackdetails";
     }
 
+    @GetMapping("/snacklist/filter")
+    public String snackListWithFilter(Model model, @RequestParam (required = false) Double maxPrice, @RequestParam (required = false) String vegan) {
+
+        Boolean veganBoolean;
+        if (vegan == null) {
+            veganBoolean = null;
+        } else if (vegan.equals("yes")) {
+            veganBoolean = true;
+        } else if (vegan.equals("no")) {
+            veganBoolean = false;
+        } else {
+            veganBoolean = null;
+        }
+
+
+        List<Snack> snacks = snackRepository.findByFilter(maxPrice, veganBoolean);
+
+        model.addAttribute("snacks", snacks);
+        model.addAttribute("nrOfSnacks", snacks.size());
+        model.addAttribute("maxPrice", maxPrice);
+        model.addAttribute("vegan", vegan);
+        model.addAttribute("showFilters", true);
+        return "snacklist";
+    }
 }

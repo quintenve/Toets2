@@ -14,6 +14,35 @@
                 <div class="cols2">
                     <div th:text="|${nrOfSnacks} snacks found|">snacks</div>
                 </div>
+                <div th:unless="${showFilters}" class="filters">
+                    <a class="buttonLook filterButton" th:href="@{/snacklist/filter}">filter</a>
+                </div>
+                <div th:if="${showFilters}" class="filters">
+                    <a class="buttonLook filterButton" th:href="@{/snacklist}">-</a>
+                    <form>
+                        <div class="onefilter">
+                            <input type="submit" value="search" class="buttonLook filterButton">
+                        </div>
+                        <h3>price</h3>
+                        <div class="oneFilter">
+                            <label for="maxPrice" class="filtername">max</label>
+                            <input type="number" id="maxPrice" name="maxPrice" th:value="${maxPrice}" max="30" min="5" step="0.5"> &euro;
+                        </div>
+                        <h3>Vegan</h3>
+                        <div>
+                            <label for="veganYes">yes</label>
+                            <input type="radio" id="veganYes" name="vegan" value="yes" th:checked="${vegan == 'yes'}">
+                        </div>
+                        <div>
+                            <label for="veganNo">no</label>
+                            <input type="radio" id="veganNo" name="vegan" value="no" th:checked="${vegan == 'no'}">
+                        </div>
+                        <div>
+                            <label for="veganAll">All</label>
+                            <input type="radio" id="veganAll" name="vegan" value="all" th:checked="${vegan == null || vegan == 'all'}" >
+                        </div>
+                    </form>
+                </div>
                 <div class="venuelist">
                     <div th:each="snack: ${snacks}">
                         <a class="buttonLook mediumButton"
@@ -21,7 +50,6 @@
                             <span th:text="${snack.name}">snack name </span>
                             <div th:if="${snack.sideDishPossible}" class="venueExtraInfo">Side dish possible with order</div>
                         </a>
-
                     </div>
                 </div>
             </div>
