@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+        <title>Snack Details</title>
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header">Header</div>
+
+        <div class="row1" th:if="${snack}">
+            <div class="row1content">
+                <div class="prevButtonDiv">
+                    <a class="buttonLook smallButton" th:href="@{|/snackdetails/${previousId}|}">&lt;</a>
+                </div>
+                <div class="nextButtonDiv">
+                    <a class="buttonLook smallButton" th:href="@{|/snackdetails/${nextId}|}">&gt;</a>
+                </div>
+
+                <h2 th:text="|snack: ${snack.name}|">snackdetails</h2>
+                <div class="infoLine">
+                    <div class="infoLineName">Vegan?</div>
+                    <div class="infoLineValue" th:text="${snack.isVegan() ? 'yes' : 'no'}">isVegan</div>
+                </div>
+                <div class="infoLine">
+                    <div class="infoLineName">Price : </div>
+                    <div class="infoLineValue" th:text="|${snack.price}${' &euro;'}|">snack price</div>
+                </div>
+                <div class="infoLine" th:if="${snack.isSideDishPossible()}">
+                    <div class="infoLineName">Price with side dish : </div>
+                    <div class="infoLineValue" th:text="|${snack.price + snack.priceSideDish}${' &euro;'}|">snack price with side dish</div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row1" th:unless="${snack}">
+            <div class="row1content" th:if="${message}">
+                <h2 th:text="${message}">message</h2>
+            </div>
+            <div class="row1content" th:unless="${message}">
+                <h2>no snack chosen</h2>
+            </div>
+        </div>
+        <div th:replace="fragments/footer :: footer">Footer</div>
+    </body>
+</html>
