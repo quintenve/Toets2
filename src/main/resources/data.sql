@@ -209,3 +209,7 @@ insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE) values(4,'Tajin C
 insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE) values(5,'Tajin Vegan', true, false, 15.5);
 insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE, PRICE_SIDE_DISH) values(6,'Salmon Wraps', false, true, 11, 4.5);
 insert into SNACK (ID, NAME, VEGAN, SIDE_DISH_POSSIBLE, PRICE, PRICE_SIDE_DISH) values(7,'Vegan Wraps', true, true, 10.5, 4.5);
+
+INSERT INTO SNACK_VENUES(SNACKS_ID, VENUES_ID) values (1,2);
+INSERT INTO SNACK_VENUES(SNACKS_ID, VENUES_ID) values (2,2);
+INSERT INTO SNACK_VENUES(SNACKS_ID, VENUES_ID) values (3,9);
